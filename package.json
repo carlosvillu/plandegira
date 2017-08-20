@@ -1,0 +1,54 @@
+{
+  "name": "web",
+  "version": "0.0.0",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "sui-bundler build -C",
+    "co": "npm run lint && git commit",
+    "deploy": "firebase deploy",
+    "start": "sui-bundler dev",
+    "lint": "npm run lint:js",
+    "lint:js": "sui-lint js --ignore-pattern public --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@schibstedspain/sui-bundler": "2",
+    "@schibstedspain/sui-lint": "2"
+  },
+  "dependencies": {
+    "@schibstedspain/ddd-react-redux": "3.0.0",
+    "@schibstedspain/rosetta": "3.10.2",
+    "babel-polyfill": "6.26.0",
+    "firebase": "4.3.0",
+    "react": "15.6.1",
+    "react-dom": "15.6.1",
+    "react-loadable": "4.0.4",
+    "react-router": "2.8.1",
+    "recompose": "0.25.0",
+    "styletron-client": "2.5.7",
+    "styletron-react": "2.5.8",
+    "uuid": "3.1.0"
+  },
+  "sui-bundler": {
+    "offline": {
+      "whitelist": [
+        "::all::"
+      ]
+    },
+    "vendor": [
+      "babel-polyfill",
+      "react",
+      "react-dom"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/@schibstedspain/sui-lint/eslintrc.js"
+    ]
+  },
+  "sasslintConfig": "./node_modules/@schibstedspain/sui-lint/sass-lint.yml"
+}
