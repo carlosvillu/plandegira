@@ -1,6 +1,6 @@
 import {styled} from 'styletron-react'
 
 export const Container = styled('div', props => ({
-  flex: 4,
-  height: '100vh'
+  height: 'calc(100% - 65px)',
+  padding: '20px'
 }))
