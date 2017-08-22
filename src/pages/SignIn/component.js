@@ -7,32 +7,37 @@ import {
   Container
 } from './styles'
 
-export default class SignUp extends Component {
-  static displayName = 'SignUp'
+export default class SignIn extends Component {
+  static displayName = 'SignIn'
   static propTypes = {
     handlerChangeEmailField: PropTypes.func,
-    handlerChangeNameField: PropTypes.func,
     handlerChangePasswordField: PropTypes.func,
     handlerClickSubmitButton: PropTypes.func,
+    history: PropTypes.shape({ push: PropTypes.func }),
 
     i18n: PropTypes.object,
+    loginUsers: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+    router: PropTypes.shape({ push: PropTypes.func }),
 
     stateEmailField: PropTypes.string,
-    stateNameField: PropTypes.string,
     statePasswordField: PropTypes.string
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.loginUsers) {
+      this.props.router.push('/')
+    }
   }
 
   render () {
     const {
       handlerChangeEmailField,
-      handlerChangeNameField,
       handlerChangePasswordField,
       handlerClickSubmitButton,
 
       i18n,
 
       stateEmailField,
-      stateNameField,
       statePasswordField
     } = this.props
 
@@ -46,13 +51,6 @@ export default class SignUp extends Component {
           onChange={handlerChangeEmailField}
         />
         <input
-          type='name'
-          required
-          placeholder={i18n.t('NAME_PLACEHOLDER')}
-          value={stateNameField}
-          onChange={handlerChangeNameField}
-        />
-        <input
           type='password'
           required
           placeholder={i18n.t('PASSWORD_PLACEHOLDER')}
@@ -61,10 +59,10 @@ export default class SignUp extends Component {
         />
         <input
           type='button'
-          value={i18n.t('SIGNUP_BUTTON')}
+          value={i18n.t('LOGIN_BUTTON')}
           onClick={handlerClickSubmitButton}
         />
-        <Link to='/signin'>{i18n.t('SIGNIN_LINK')}</Link>
+        <Link to='/signup'>{i18n.t('SIGNUP_LINK')}</Link>
       </Container>
     )
   }

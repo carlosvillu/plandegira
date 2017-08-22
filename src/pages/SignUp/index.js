@@ -1,4 +1,4 @@
-import {PropTypes} from 'react'
+import PropTypes from 'prop-types'
 import SignUp from './component'
 
 import compose from 'recompose/compose'
@@ -7,9 +7,9 @@ import withState from 'recompose/withState'
 import getContext from 'recompose/getContext'
 
 export default compose(
-  withState('stateEmailField', 'setStateEmailField', 'carlos@cas.com'),
-  withState('stateNameField', 'setStateNameField', 'Carlos'),
-  withState('statePasswordField', 'setStatePasswordField', '12345678'),
+  withState('stateEmailField', 'setStateEmailField', ''),
+  withState('stateNameField', 'setStateNameField', ''),
+  withState('statePasswordField', 'setStatePasswordField', ''),
   getContext({i18n: PropTypes.object, domain: PropTypes.object}),
   withHandlers({
     handlerChangeEmailField: props => e => props.setStateEmailField(e.target.value),
@@ -21,6 +21,8 @@ export default compose(
         name: props.stateNameField,
         password: props.statePasswordField
       })
+
+      props.history.push('/')
 
       console.log('UserID', user) // eslint-disable-line
     }
