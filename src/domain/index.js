@@ -10,6 +10,9 @@ class PlanDeGira {
     this._map['config'] = this._config
 
     this._map['signup_users_use_case'] = UsersFactory.signUpUserUseCase()
+    this._map['current_users_use_case'] = UsersFactory.currentUsersUseCase()
+    this._map['login_users_use_case'] = UsersFactory.loginUsersUseCase()
+    this._map['logout_users_use_case'] = UsersFactory.logoutUsersUseCase()
   }
 
   get (key) {
