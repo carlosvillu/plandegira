@@ -6,33 +6,39 @@
   "main": "index.js",
   "scripts": {
     "build": "sui-bundler build -C",
-    "co": "npm run lint && git commit",
+    "co": "sui-mono commit",
     "deploy": "npm run build && firebase deploy",
     "start": "sui-bundler dev",
-    "lint": "npm run lint:js",
-    "lint:js": "sui-lint js --ignore-pattern public --fix"
+    "lint": "sui-lint js --fix && sui-lint sass",
+    "precommit": "sui-precommit run"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@s-ui/mono": "1",
+    "@s-ui/precommit": "2",
     "@schibstedspain/sui-bundler": "2",
-    "@schibstedspain/sui-lint": "2"
+    "@schibstedspain/sui-lint": "2",
+    "cypress": "0.20.0",
+    "husky": "0.13.4"
   },
   "dependencies": {
-    "@schibstedspain/ddd-react-redux": "3",
+    "@s-ui/react-domain-connector": "1",
     "@schibstedspain/rosetta": "3",
     "babel-polyfill": "6.26.0",
     "firebase": "4.3.0",
     "prop-types": "15.5.10",
     "react": "15.5.4",
+    "react-autosize-textarea": "0.4.8",
     "react-dom": "15.5.4",
+    "react-icons": "2.2.5",
     "react-loadable": "4.0.4",
     "react-router": "2.8.1",
     "recompose": "0.23.4",
+    "rxjs": "5.4.3",
     "styletron-client": "2.5.7",
-    "styletron-react": "2.5.8",
-    "uuid": "3.1.0"
+    "styletron-react": "2.5.8"
   },
   "sui-bundler": {
     "offline": {
@@ -45,6 +51,11 @@
       "react",
       "react-dom"
     ]
+  },
+  "config": {
+    "validate-commit-msg": {
+      "types": "@s-ui/mono/src/types"
+    }
   },
   "eslintConfig": {
     "extends": [
