@@ -1,4 +1,12 @@
 export default class UsersRepository {
+  bands$ () {
+    throw Error('[UsersRepository#bands$] must be implemented')
+  }
+
+  addBand () {
+    throw Error('[UsersRepository#addBand] must be implemented')
+  }
+
   current () {
     throw Error('[UsersRepository#current] must be implemented')
   }
