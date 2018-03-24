@@ -1,4 +1,3 @@
-/* eslint standard/computed-property-even-spacing:0 */
 import config from './config'
 
 import UsersFactory from './factories/users'
@@ -15,10 +14,7 @@ class PlanDeGira {
     this._map['login_users_use_case'] = UsersFactory.loginUsersUseCase()
     this._map['logout_users_use_case'] = UsersFactory.logoutUsersUseCase()
     this._map['signup_users_use_case'] = UsersFactory.signUpUserUseCase()
-    // eslint-disable-next-line
-    this._map[
-      'stream_bands_users_use_case'
-    ] = UsersFactory.streamBandsUsersUseCase()
+    this._map['stream_bands_users_use_case'] = UsersFactory.streamBandsUsersUseCase()
 
     this._map['create_bands_use_case'] = BandsFactory.createBandsUseCase()
   }
@@ -28,7 +24,7 @@ class PlanDeGira {
       ? this._map[key]
       : {
         execute: () =>
-            Promise.reject(new Error(`[PlanDeGira#get] ${key} not defined`))
+          Promise.reject(new Error(`[PlanDeGira#get] ${key} not defined`))
       }
   }
 
