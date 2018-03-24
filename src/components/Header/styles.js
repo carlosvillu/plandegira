@@ -1,4 +1,4 @@
-import {styled} from 'styletron-react'
+import { styled } from 'styletron-react'
 
 export const Container = styled('div', props => ({
   height: '25px',

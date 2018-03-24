@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 
-import Header from '../Header'
 import ChatBody from '../ChatBody'
 
 import {
@@ -13,7 +12,6 @@ export default class Chat extends Component {
   render () {
     return (
       <Container>
-        <Header />
         <ChatBody />
       </Container>
     )

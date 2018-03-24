@@ -1,4 +1,4 @@
-import {styled} from 'styletron-react'
+import { styled } from 'styletron-react'
 
 export const Container = styled('div', props => ({
   backgroundColor: '#4D394B',

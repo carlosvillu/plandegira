@@ -1,21 +1,19 @@
-import React, {Component} from 'react'
+import Aside from './component'
 
 import {
-  Container
-} from './styles'
+  mapUIResponseToProps,
+  mapUIServiceToProps,
+  compose
+} from '@s-ui/react-domain-connector'
+import withHandlers from 'recompose/withHandlers'
 
-import ChannelList from '../ChannelList'
-import UserList from '../UserList'
-
-export default class Aside extends Component {
-  static displayName = 'Aside'
-
-  render () {
-    return (
-      <Container>
-        <ChannelList />
-        <UserList />
-      </Container>
-    )
-  }
-}
+export default compose(
+  mapUIResponseToProps('modalAddBand', 'modalAddEvent'),
+  mapUIServiceToProps('modalAddBand', 'modalAddEvent'),
+  withHandlers({
+    handlerRequestCloseModalAddBand: props => () =>
+      props.setModalAddBandUI(false),
+    handlerRequestCloseModalAddEvent: props => () =>
+      props.setModalAddEventUI(false)
+  })
+)(Aside)

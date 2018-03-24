@@ -10,11 +10,14 @@ export default compose(
   withState('stateEmailField', 'setStateEmailField', ''),
   withState('stateNameField', 'setStateNameField', ''),
   withState('statePasswordField', 'setStatePasswordField', ''),
-  getContext({i18n: PropTypes.object, domain: PropTypes.object}),
+  getContext({ i18n: PropTypes.object, domain: PropTypes.object }),
   withHandlers({
-    handlerChangeEmailField: props => e => props.setStateEmailField(e.target.value),
-    handlerChangeNameField: props => e => props.setStateNameField(e.target.value),
-    handlerChangePasswordField: props => e => props.setStatePasswordField(e.target.value),
+    handlerChangeEmailField: props => e =>
+      props.setStateEmailField(e.target.value),
+    handlerChangeNameField: props => e =>
+      props.setStateNameField(e.target.value),
+    handlerChangePasswordField: props => e =>
+      props.setStatePasswordField(e.target.value),
     handlerClickSubmitButton: props => async () => {
       const user = await props.domain.get('signup_users_use_case').execute({
         email: props.stateEmailField,
@@ -22,9 +25,9 @@ export default compose(
         password: props.statePasswordField
       })
 
-      props.history.push('/')
+      console.log(user)
 
-      console.log('UserID', user) // eslint-disable-line
+      props.history.push('/')
     }
-  }),
+  })
 )(SignUp)

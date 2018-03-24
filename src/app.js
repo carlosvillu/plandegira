@@ -1,19 +1,18 @@
-/* eslint no-console:0 */
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import {register} from '@schibstedspain/sui-bundler/registerServiceWorker'
-import {Provider} from '@schibstedspain/ddd-react-redux'
-import {AppContainer} from 'react-hot-loader'
+import { register } from '@schibstedspain/sui-bundler/registerServiceWorker'
+import { Provider } from '@s-ui/react-domain-connector'
+import { AppContainer } from 'react-hot-loader'
 import Router from 'react-router/lib/Router'
 import routes from './routes'
 import browserHistory from 'react-router/lib/browserHistory'
 import Styletron from 'styletron-client'
-import {StyletronProvider} from 'styletron-react'
+import { StyletronProvider } from 'styletron-react'
 
 import Root from './components/Root'
 import i18n from './literals'
-import domain, {fb} from './domain/instance'
+import domain, { fb } from './domain/instance'
 
 const render = Component =>
   ReactDOM.render(
@@ -28,7 +27,6 @@ const render = Component =>
   )
 
 fb.auth().onAuthStateChanged(user => {
-  console.log('UserApp', user)
   render(Root)
 })
 
@@ -36,7 +34,6 @@ if (module.hot) {
   module.hot.accept('./components/Root', () => {
     const NewRoot = require('./components/Root').default
     fb.auth().onAuthStateChanged(user => {
-      console.log('UserApp Hot', user)
       render(NewRoot)
     })
   })

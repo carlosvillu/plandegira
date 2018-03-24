@@ -1,4 +1,3 @@
-/* eslint no-console:0 */
 import base from './base'
 // import development from './development'
 // import test from './test'

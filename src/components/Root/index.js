@@ -1,8 +1,6 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
-import {
-  Container
-} from './styles'
+import { Container } from './styles'
 
 export default class Root extends Component {
   static displayName = 'Root'
@@ -11,7 +9,7 @@ export default class Root extends Component {
   }
 
   render () {
-    const {children} = this.props
+    const { children } = this.props
     return <Container>{children}</Container>
   }
 }
