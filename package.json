@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "sui-bundler build -C",
+    "build": "sui-bundler build -C && cp ./_redirects ./public",
     "co": "sui-mono commit",
     "deploy": "npm run build && firebase deploy",
     "start": "sui-bundler dev",
